@@ -1,13 +1,13 @@
 #!/bin/bash
 
-/bin/blackbox_exporter -D
+/bin/blackbox_exporter --config.file=/etc/blackbox_exporter/blackbox.yml &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start blackbox exporter: $status"
   exit $status
 fi
 
-/bin/prometheus -D
+/bin/prometheus --config.file=/etc/prometheus/prometheus.yml &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start prometheus: $status"

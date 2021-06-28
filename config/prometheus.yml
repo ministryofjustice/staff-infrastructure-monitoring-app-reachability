@@ -3,13 +3,13 @@ global:
   scrape_interval:     180s 
   evaluation_interval: 60s
   external_labels:
-    environment: {{ENVIRONMENT}}
+    environment: production #{{ENVIRONMENT}}
 
 remote_write:
-  - url: {{IMAP_PROMETHEUS_URL}}
+  - url: http://thanos-secure-development.dev.staff.service.justice.gov.uk/ #{{IMAP_PROMETHEUS_URL}}
     basic_auth:
-        username: {{IMAP_PROMETHEUS_USER}}
-        password: {{IMAP_PROMETHEUS_PASSWORD}}
+        username: {{USER}}
+        password: {{PASS}}
 
 
 scrape_configs:
@@ -30,7 +30,7 @@ scrape_configs:
       module: [http_2xx] # Look for a HTTP 200 response
     static_configs:
       - targets:
-        - {{TARGET}}
+        - https://google.com/ #{{TARGET}}
 
     relabel_configs:
       - source_labels: [__address__]
@@ -38,4 +38,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: {{SOMETHING}} # Blackbox Exporter hostname:port
+        replacement: blackbox.prom.test #{{SOMETHING}} # Blackbox Exporter hostname:port
