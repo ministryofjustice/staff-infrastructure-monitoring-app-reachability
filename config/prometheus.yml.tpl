@@ -6,10 +6,10 @@ global:
     environment: production #{{ENVIRONMENT}}
 
 remote_write:
-  - url: http://thanos-secure-development.dev.staff.service.justice.gov.uk/ #{{IMAP_PROMETHEUS_URL}}
+  - url: http://thanos-secure-development.dev.staff.service.justice.gov.uk/api/v1/receive #{{IMAP_PROMETHEUS_URL}}
     basic_auth:
-        username: {{USER}}
-        password: {{PASS}}
+        username: USER
+        password: PASS
 
 
 scrape_configs:
@@ -30,7 +30,7 @@ scrape_configs:
       module: [http_2xx] # Look for a HTTP 200 response
     static_configs:
       - targets:
-        - https://google.com/ #{{TARGET}}
+        - TARGET
 
     relabel_configs:
       - source_labels: [__address__]
@@ -38,4 +38,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: blackbox.prom.test #{{SOMETHING}} # Blackbox Exporter hostname:port
+        replacement: 127.0.0.1:9115 #{{SOMETHING}} # Blackbox Exporter hostname:port
