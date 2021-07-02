@@ -6,6 +6,6 @@ build:
 	./build.sh
 
 run:
-	docker run -it -e IMA_USER=$$IMA_USER -e IMA_PASS=$$IMA_PASS -e IMA_TARGET=$$IMA_TARGET -e IMAP_PROMETHEUS_URL=$$IMAP_PROMETHEUS_URL app-reachability:latest
+	docker run -it -e PROM_USER=$$PROM_USER -e PROM_PASS=$$PROM_PASS -e PROM_TARGET=$$PROM_TARGET -e REMOTE_WRITE_URL=$$REMOTE_WRITE_URL app-reachability:latest
 
 .PHONY: build run

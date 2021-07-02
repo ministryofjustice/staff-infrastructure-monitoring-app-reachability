@@ -6,7 +6,7 @@ global:
     environment: production #{{ENVIRONMENT}}
 
 remote_write:
-  - url: IMAP_PROMETHEUS_URL #{{IMAP_PROMETHEUS_URL}}
+  - url: REMOTE_WRITE_URL #{{REMOTE_WRITE_URL}}
     basic_auth:
         username: USER
         password: PASS
