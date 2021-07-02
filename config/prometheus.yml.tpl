@@ -6,10 +6,12 @@ global:
     environment: production #{{ENVIRONMENT}}
 
 remote_write:
-  - url: http://thanos-secure-development.dev.staff.service.justice.gov.uk/api/v1/receive #{{IMAP_PROMETHEUS_URL}}
+  - url: IMAP_PROMETHEUS_URL #{{IMAP_PROMETHEUS_URL}}
     basic_auth:
         username: USER
         password: PASS
+    metadata_config:
+      send: false
 
 
 scrape_configs:
@@ -38,4 +40,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 127.0.0.1:9115 #{{SOMETHING}} # Blackbox Exporter hostname:port
+        replacement: localhost:9115 # Blackbox Exporter hostname:port
