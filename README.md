@@ -14,3 +14,7 @@ To run this container successfully you will need 4 values.
 `PROM_TARGET=<target-url-to-check>`
 
 `REMOTE_WRITE_URL=<url-for-prometheus-remote-write-target>`
+
+## Testing locally
+
+Populate the fields in docker-compose.yml and run `docker compose up`
