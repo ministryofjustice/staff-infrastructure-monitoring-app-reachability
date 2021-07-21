@@ -13,7 +13,6 @@ remote_write:
     metadata_config:
       send: false
 
-
 scrape_configs:
   - job_name: prometheus
     honor_labels: true
@@ -21,8 +20,6 @@ scrape_configs:
       - targets:
         - localhost:9090
     metrics_path: /metrics
-
-  
 
 # Blackbox Exporter probes endpoints over HTTP, HTTPS, DNS, TCP or ICMP protocols, returning detailed metrics about the request,
 # including whether or not it was successful and how long it took to receive a response.
@@ -32,7 +29,15 @@ scrape_configs:
       module: [http_2xx] # Look for a HTTP 200 response
     static_configs:
       - targets:
-        - TARGET
+        # External DNS 
+        - 1.1.1.1 # Cloudflare
+        - 25.25.25.25 # NCSC PDNS
+        - 25.26.27.28 # NCSC PDNS
+        - www.ppud.gsi.gov.uk
+        - https://bbc.co.uk/
+        - gateway-f.internal.vpn.justice.gov.uk
+        - a03.wp360g.svcs.hp.com
+
 
     relabel_configs:
       - source_labels: [__address__]
