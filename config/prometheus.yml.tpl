@@ -7,6 +7,8 @@ global:
 
 remote_write:
   - url: REMOTE_WRITE_URL #{{REMOTE_WRITE_URL}}
+    tls_config:
+      insecure_skip_verify: true
     basic_auth:
         username: USER
         password: PASS
@@ -26,7 +28,7 @@ scrape_configs:
 
 # Blackbox Exporter probes endpoints over HTTP, HTTPS, DNS, TCP or ICMP protocols, returning detailed metrics about the request,
 # including whether or not it was successful and how long it took to receive a response.
-  - job_name: 'blackbox-http'
+  - job_name: 'app-reachability'
     metrics_path: /probe
     params:
       module: [http_2xx] # Look for a HTTP 200 response

@@ -17,4 +17,12 @@ To run this container successfully you will need 4 values.
 
 ## Testing locally
 
+### With Docker-Compose
+
 Populate the fields in docker-compose.yml and run `docker compose up`
+
+### With Docker
+
+- Create a .env file `cp .env.example .env`
+- Populate the fields
+- Run `make run`
