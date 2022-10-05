@@ -1,3 +1,5 @@
+[![repo standards badge](https://img.shields.io/badge/dynamic/json?color=blue&style=flat&logo=github&labelColor=32393F&label=MoJ%20Compliant&query=%24.result&url=https%3A%2F%2Foperations-engineering-reports.cloud-platform.service.justice.gov.uk%2Fapi%2Fv1%2Fcompliant_public_repositories%2Fstaff-infrastructure-monitoring-app-reachability)](https://operations-engineering-reports.cloud-platform.service.justice.gov.uk/public-github-repositories.html#staff-infrastructure-monitoring-app-reachability "Link to report")
+
 # CloudOps App Reachbility probe
 
 This repo holds a lightweight all-in-one docker image for monitoring http endpoints and shipping metrics back to a central prometheus over the internet.
