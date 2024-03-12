@@ -1,5 +1,7 @@
 #!make
-include .env
+ifneq (,$(wildcard ./.env))
+	include .env
+endif
 export
 
 .DEFAULT_GOAL := help
