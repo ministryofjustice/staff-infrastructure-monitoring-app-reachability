@@ -7,4 +7,4 @@ tar -xzvf tmp/bb.tar.gz -C ./tmp
 mkdir -p build
 mv ./tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter ./build
 
-docker build -t app-reachability .
+docker build --platform linux/amd64 -t app-reachability .
