@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   monitor-net:
@@ -7,10 +7,10 @@ networks:
 services:
   reachability:
     image: ghcr.io/ministryofjustice/staff-infrastructure-monitoring-app-reachability:main
+    platform: linux/x86_64
     container_name: app-reachability
     environment:
       - PROM_USER= # basic auth username for prometheus
       - PROM_PASS= # basic auth password for prometheus
       - PROM_TARGET= # full url of http endpoint for monitoring
       - REMOTE_WRITE_URL= # url for prometheus/thanos remote write
-    
